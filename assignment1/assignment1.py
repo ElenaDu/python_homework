@@ -104,7 +104,7 @@ def student_scores(position, **kwargs):
 
 def titleize(string):
     words = string.split(" ")
-    little_words = ["a","on","an","the","of","and","is","in"]
+    little_words = {"a","on","an","the","of","and","is","in"}
     words[0] = words[0].capitalize()
     if len(words) > 1:
         for i in range (1,len(words)):
@@ -135,7 +135,7 @@ print(hangman("Test", "e"))
 
 def pig_latin(english_string):
     eng_list = english_string.split(" ")
-    vowel = ["a", "e", "i", "o", "u"]
+    vowel = {"a", "e", "i", "o", "u"}
     for i in range(len(eng_list)):
         if eng_list[i][0] in vowel:
             eng_list[i] = eng_list[i]+"ay"
