@@ -59,11 +59,11 @@ def grade(*args):
         result = sum(args)/len(args)
         if result < 60:
             grade = "F"
-        elif result < 69:
+        elif result < 70:
             grade = "D"
-        elif result < 79:
+        elif result < 80:
             grade = "C"
-        elif result < 89:
+        elif result < 90:
             grade = "B"
         else: 
             grade = "A"
@@ -71,8 +71,15 @@ def grade(*args):
 
     except TypeError:
         return ("Invalid data was provided.")
+    except ZeroDivisionError:
+        return ("No data was provided.")
 
-print(grade(10, 60, 80, 58))
+print(grade(69))
+print(grade(79))
+print(grade(89))
+print(grade(59))
+print(grade())
+print(grade("A"))
 
 #Task 6: Use a For Loop with a Range
 
