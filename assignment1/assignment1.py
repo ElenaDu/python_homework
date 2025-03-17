@@ -97,6 +97,8 @@ print(repeat("test",5))
 
 #Task 7: Student Scores, Using **kwargs
 def student_scores(position, **kwargs):
+    if not kwargs:
+        return "No student scores were provided."
     match position:
         case "best":
             max_key = None
@@ -110,6 +112,10 @@ def student_scores(position, **kwargs):
         case "mean":
             average_score = sum(kwargs.values())/len(kwargs.values())
             return average_score
+        case _:
+            return f"Invalid parameter '{position}'. Choose either 'best' or 'mean'."
+
+print(student_scores("best"))
 
 #Task 8: Titleize, with String and List Operations
 
