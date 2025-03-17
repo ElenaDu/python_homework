@@ -27,7 +27,7 @@ def calc(a,b,operation="multiply"):
             case "power":
                 result = a ** b
             case _:
-                result = "Invalid operation. Supported operations: add, subtract, multiply, divide, int_divide, modulo, power."
+                result = f"Unsupported or invalid operation '{operation}'. Supported operations: add, subtract, multiply, divide, int_divide, modulo, power."
         return result
     except ZeroDivisionError:
         return("You can't divide by 0!")
@@ -35,7 +35,7 @@ def calc(a,b,operation="multiply"):
         return(f"You can't {operation} those values!")
     
 
-print(calc(2,"r", "power"))
+print(calc(2,"r", "powerr"))
 
 #Task 4: Data Type Conversion
 def data_type_conversion(value, data_type_name):
@@ -47,12 +47,14 @@ def data_type_conversion(value, data_type_name):
                 result = float(value)
             case "str":
                 result = str(value)
+            case _:
+                result = f"Unsupported or invalid data type '{data_type_name}'. Supported data types: float, str, int."
         return result
     
     except ValueError:
         return (f"You can't convert {value} into a {data_type_name}.")
    
-print(data_type_conversion("test","int"))
+print(data_type_conversion("1","strt"))
 
 #Task 5: Grading System, Using *args
 
