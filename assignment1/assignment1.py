@@ -26,14 +26,16 @@ def calc(a,b,operation="multiply"):
                 result = a % b
             case "power":
                 result = a ** b
+            case _:
+                result = "Invalid operation. Supported operations: add, subtract, multiply, divide, int_divide, modulo, power."
         return result
     except ZeroDivisionError:
         return("You can't divide by 0!")
     except TypeError:
-        return("You can't multiply those values!")
+        return(f"You can't {operation} those values!")
     
 
-print(calc(2,0, "divide"))
+print(calc(2,"r", "power"))
 
 #Task 4: Data Type Conversion
 def data_type_conversion(value, data_type_name):
