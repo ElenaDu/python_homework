@@ -6,12 +6,12 @@ with sqlite3.connect("../db/school.db") as conn:
     cursor = conn.cursor()
 
     # Insert sample data into tables
-    #cursor.execute("INSERT INTO Students (name, age, major) VALUES ('Alice', 20, 'Computer Science')")
-    #cursor.execute("INSERT INTO Students (name, age, major) VALUES ('Bob', 22, 'History')") 
-    #cursor.execute("INSERT INTO Students (name, age, major) VALUES ('Charlie', 19, 'Biology')") 
-    #cursor.execute("INSERT INTO Courses (course_name, instructor_name) VALUES ('Math 101', 'Dr. Smith')")
-    #cursor.execute("INSERT INTO Courses (course_name, instructor_name) VALUES ('English 101', 'Ms. Jones')") 
-    #cursor.execute("INSERT INTO Courses (course_name, instructor_name) VALUES ('Chemistry 101', 'Dr. Lee')") 
+    cursor.execute("INSERT INTO Students (name, age, major) VALUES ('Alice', 20, 'Computer Science')")
+    cursor.execute("INSERT INTO Students (name, age, major) VALUES ('Bob', 22, 'History')") 
+    cursor.execute("INSERT INTO Students (name, age, major) VALUES ('Charlie', 19, 'Biology')") 
+    cursor.execute("INSERT INTO Courses (course_name, instructor_name) VALUES ('Math 101', 'Dr. Smith')")
+    cursor.execute("INSERT INTO Courses (course_name, instructor_name) VALUES ('English 101', 'Ms. Jones')") 
+    cursor.execute("INSERT INTO Courses (course_name, instructor_name) VALUES ('Chemistry 101', 'Dr. Lee')") 
 
     #conn.commit() 
    
@@ -23,7 +23,7 @@ with sqlite3.connect("../db/school.db") as conn:
     
     
     def enroll_student(cursor, student, course):
-        cursor.execute("SELECT * FROM Students WHERE name = ?", (student,)) # For a tuple with one element, you need to include the comma
+        cursor.execute("SELECT * FROM Students WHERE name = ?", (student,))
         results = cursor.fetchall()
         if len(results) > 0:
             student_id = results[0][0]

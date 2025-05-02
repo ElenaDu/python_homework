@@ -3,6 +3,8 @@ import sqlite3
 def add_publisher(cursor, name):
     try:
         cursor.execute("INSERT INTO publishers (name) VALUES (?)", (name,))
+    except sqlite3.IntegrityError:
+        print(f"'{name}' is already in the database.") 
     except sqlite3.Error as e:
         print(f"An error occurred while adding a publisher: {e}")
 
@@ -93,14 +95,29 @@ try:
             UNIQUE(subscriber_id, magazine_id)
         )
         """)
-        conn.commit()
-        print("Tables created successfully.")
-
+        
         #Task 3: Populate Tables with Data
         add_publisher(cursor, "Tax Analysts")
-        add_publisher(cursor, "National Geographic Society")
-        add_publisher(cursor, "Tax Analysts")
+        add_publisher(cursor, "National Geographic Partners")
+        add_publisher(cursor, "Condé Nast")
         add_publisher(cursor, "Dell Magazines")
+        add_magazine(cursor, "Dell Crazy for Sudoku!", "Dell Magazines")
+        add_magazine(cursor, "Dell Logic Puzzles", "Dell Magazines")
+        add_magazine(cursor, "Dell Logic Puzzles", "Dell")
+        add_magazine(cursor, "Vogue", "Condé Nast")
+        add_magazine(cursor, "National Geographic", "National Geographic Partners")
+        add_subscriber(cursor, "Alice Smith","111 Main Str, Georgetown, TX, 78645")
+        add_subscriber(cursor, "Alice Smith","34 Congress Ave, Austin TX, 78645")
+        add_subscriber(cursor, "Mila Smith","111 Main Str, Georgetown, TX, 78645")
+        add_subscriber(cursor, "Lana Stogov","1210 Sunny Ave, Austin TX, 78600")
+        add_subscription(cursor, "Alice Smith", "111 Main Str, Georgetown, TX, 78645", "Vogue", "01-01-2026")
+        add_subscription(cursor, "Alice Smith", "34 Congress Ave, Austin TX, 78645", "Vogue", "01-01-2026")
+        add_subscription(cursor, "Alice Smith", "34 Congress Ave, Austin TX, 78645", "Dell Crazy for Sudoku!", "12-01-2025")
+        add_subscription(cursor, "Mila Smith", "111 Main Str, Georgetown, TX, 78645", "Vogue", "01-01-2026")
+        add_subscription(cursor, "Lana Stogov", "111 Main Str", "Vogue", "01-01-2026")
+        add_subscription(cursor, "Lana Stogov", "1210 Sunny Ave, Austin TX, 78600", "Dell Logic Puzzles", "07-01-2026")
+        add_subscription(cursor, "Lana Stogov", "1210 Sunny Ave, Austin TX, 78600", "National Geographic", "02-01-2026")
+        conn.commit()
 
         
 except sqlite3.Error as e:
