@@ -119,6 +119,31 @@ try:
         add_subscription(cursor, "Lana Stogov", "1210 Sunny Ave, Austin TX, 78600", "National Geographic", "02-01-2026")
         conn.commit()
 
+        #Task 4: Write SQL Queries
+        #Retrieve all information from the subscribers table
+        cursor.execute("SELECT * FROM subscribers")
+        result = cursor.fetchall()
+        print("All Subscribers:")
+        for row in result:
+            print(row)
+
+        #Retrieve all magazines sorted by name
+        cursor.execute("SELECT * FROM magazines ORDER BY name")
+        result = cursor.fetchall()
+        print("All Magazines:")
+        for row in result:
+            print(row)
         
+        #Find magazines for a particular publisher
+        cursor.execute("""SELECT m.name 
+                          FROM magazines m JOIN publishers p
+                          ON m.publisher_id = p.id
+                          WHERE p.name = 'Dell Magazines'
+                       """)
+        result = cursor.fetchall()
+        print("Magazines by 'Dell Magazines':")
+        for row in result:
+            print(row)
+               
 except sqlite3.Error as e:
-    print(f"An error occurred while connecting to the database: {e}")
+    print(f"An error occurred while working with the database: {e}")
