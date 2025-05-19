@@ -51,7 +51,6 @@ try:
     print("Scraping complete. Data saved to get_books.csv and get_books.json.")
 
 except Exception as e:
-    print("Couldn't get the web page")
     print(f"Exception: {type(e).__name__} {e}")
 
 finally:
