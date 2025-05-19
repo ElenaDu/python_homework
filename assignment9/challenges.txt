@@ -1,0 +1,13 @@
+This lesson was challenging for me overall, but the main difficulty was working with XPath selectors. 
+It took me some time to construct the correct paths and retrieve the necessary elements. 
+Although I successfully extracted the data and stored it in a CSV file, I kept getting the error:
+"An error occurred: Message: no such element: Unable to locate element: {"method":"css selector","selector":"a"}"
+To troubleshoot, I added print statements and additional try-except blocks. Upon further inspection of the webpage using browser developer tools,
+I realized I had mistakenly assumed there was only one unordered list on the page.
+In fact, there are two unordered lists nested within the div with the id "main." After researching the documentation on how to target the second list,
+I corrected my XPath, which resolved the errors.
+
+The second challenge was completing the optional assignment in Task 3: retrieving all books from all pages, regardless of the number of pages.
+I haven't completed it yet, but I hope to finish it during this course or afterward.
+To scrape results from multiple pages using Selenium, I can automate the process by clicking on the page numbers or the ">" button.
+I've tried some approaches but definitely need more time to develop a working solution.
