@@ -1,0 +1,37 @@
+1. Access the robots.txt file for Wikipedia: Wikipedia Robots.txt.
+2. Analyze the file and answer the following questions. Put your answers in a file called ethical_scraping.txt in your python_homework/assignment9 directory
+- Which sections of the website are restricted for crawling?
+- Are there specific rules for certain user agents?
+
+Answer:
+Restricted sections for all crawlers:
+-  /w/ 
+- /wiki/Special 
+- /api/
+- /trap/
+
+However, there are some exceptions in these sections, which are available for access:
+User-agent: *
+Allow: /w/api.php?action=mobileview&
+Allow: /w/load.php?
+Allow: /api/rest_v1/?doc
+
+Specific Rules for certain user agens:
+Some agents are disallowed from accessing any pages of the website. Their names  are listed with directive "Disallow: /". 
+For example: "User-agent: Microsoft.URL.Control
+Disallow: /".
+
+Sometimes, there are notes explaining why a particular agent is not allowed on the website. For example: "The 'grub' distributed client has been *very* poorly behaved.
+User-agent: grub-client
+Disallow: /"
+
+
+3. Reflect on why websites use robots.txt and write 2-3 sentences explaining its purpose and how it promotes ethical scraping. 
+Put these in ethical_scraping.txt in your python_homework directory.
+
+The "robots.txt" file is used as an instruction manual that a website provides for crawlers.
+It indicates which bots are not allowed to crawl the site and which parts of the website other bots can access.
+Sometimes, a “crawl-delay” is specified to set a minimum allowed delay between successive requests.
+The purpose of this is to control bot access to the website and avoid server overload.
+By disallowing the crawling of specific directories or files, website owners can keep private or sensitive information from being indexed and made publicly available by search engines.
+The "robots.txt" promotes ethical scraping by encouraging crawlers to follow rules and respect the boundaries set by website owners.
