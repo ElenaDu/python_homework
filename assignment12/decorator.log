@@ -1,0 +1,18 @@
+function: hello_world
+positional parameters: none
+keyword parameters: none
+return: None
+
++---------------------------------------------+
+function: posit_args
+positional parameters: [10, 800, 'apple', 'test']
+keyword parameters: none
+return: True
+
++---------------------------------------------+
+function: keyword_args
+positional parameters: none
+keyword parameters: {'user': 'alena', 'role': 'admin', 'active': True}
+return: <function logger_decorator at 0x1009e84a0>
+
++---------------------------------------------+
